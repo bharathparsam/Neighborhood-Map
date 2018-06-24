@@ -1,0 +1,36 @@
+#nav {
+  float: left;
+  padding: 10px;
+}
+
+#list-items {
+  list-style-type: none;
+  padding: 20px;
+}
+
+#filter {
+  margin-left: 20px;
+  padding: 10px;
+}
+
+#toggle-nav {
+  position: absolute;
+  width: 40px;
+  font-size: 30px;
+  cursor: pointer;
+  fill: #74858b;
+  right: 25px;
+  top: 5px;
+  z-index: 5;
+}
+
+.elem {
+  cursor: pointer;
+  padding: 10px;
+}
+
+
+.close {
+  margin-left: -20px;
+  width: 0;
+}
