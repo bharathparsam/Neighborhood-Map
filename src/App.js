@@ -230,7 +230,7 @@ class App extends Component {
       isOpen = {
         this.props.isOpen
       }
-      /> <
+      />  <
       div id = "map-container"
       role = "application"
       tabIndex = "-1" >
@@ -241,11 +241,7 @@ class App extends Component {
           height: window.innerHeight + "px"
         }
       } >
-      <
-      /div> <
-      /div> <
-      /div>
-
+      </div>  </div>  </div>
     );
   }
 }
@@ -254,12 +250,12 @@ export default App;
 
 function loadMapJS(src) {
 
-  var ref = window.document.getElementsByTagName('script')[0];
+  var refers = window.document.getElementsByTagName('script')[0];
   var script = window.document.createElement('script');
   script.src = src;
   script.async = true;
   script.onerror = () => {
-    document.getElementById('map').innerHTML = "Script did not load.Ther is some Error!"
+    document.getElementById('map').innerHTML = "Script Cannot be loaded"
   }
-  ref.parentNode.insertBefore(script, ref);
+  ref.parentNode.insertBefore(script, refers);
 }
