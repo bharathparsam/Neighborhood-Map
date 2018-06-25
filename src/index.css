@@ -5,12 +5,21 @@
 
 #items-list {
   list-style-type: none;
-  padding: 18px;
+  padding:15px;
+}
+
+#names{
+  margin-left: 15px;
+  padding: 10px;
+  cursor: not-allowed;
+  color:#00004d;
 }
 
 #filter {
-  margin-left: 17px;
+  margin-left: 15px;
   padding: 10px;
+  cursor: auto;
+  border: 2px solid green;
 }
 
 #toggle-nav {
@@ -19,14 +28,16 @@
   font-size: 30px;
   cursor: pointer;
   fill: #3a4245;
-  right: 25px;
-  top: 5px;
+  right: 35px;
+  top: 8px;
   z-index: 5;
 }
 
 .elementss {
   cursor: pointer;
   padding: 10px;
+  color: #991f00;
+  font-weight: 700;
 }
 
 

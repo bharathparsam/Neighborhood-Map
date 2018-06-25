@@ -118,8 +118,6 @@ class App extends Component {
     /*
     *   Creating the info window and setting a state -->
     *   Setting the maximum size of InfoWindow
-    *
-
     */
 
     var infowindow = new google.maps.InfoWindow({ maxWidth: 200 });
@@ -232,7 +230,6 @@ class App extends Component {
   }
   render = () => {
     return (
-
       <div id = "container" role = "main" >
       <span id = "toggle-nav" onClick = {this.toggleNav} aria-label = "toggle Navigation" >&#9776;</span>
       <SideNav places= {this.state.markers}openInfoWindow = { this.openInfoWindow} filter = { this.filter}isOpen = {this.props.isOpen}/>
