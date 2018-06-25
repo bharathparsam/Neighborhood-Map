@@ -11,10 +11,10 @@ class SideNav extends Component {
     return (
       <div id = "filter-navigator" >
       <h5 id="names">My Places</h5>
-      <input type = "text"
-      placeholder = "Filter by location names"
+      <input type = "text" placeholder = "Filter by location names"
       id = "filter"
       aria-label = "Search Filter"
+      role = "textbox" 
       onChange = {this.props.filter}/>
       <ul id = "items-list" aria-label="list of locations" role = "navigation" >
       {
