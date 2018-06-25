@@ -3,9 +3,8 @@
 ### Table of Contents
 
 -   [Introduction](#Introduction)
--   [How-to-use-the-application](#How to use the application)
--   [How-to-run-the-application](#How to run the application)
--   [Run-the-project-in-production Mode](#Run the project in production Mode)
+-   [Guide](#How to use the application)
+-   [Deployment](#How to run the application)
 -   [Appendix](#Appendix)
 
 * * *
