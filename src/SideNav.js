@@ -1,3 +1,4 @@
+// To make best use of React
 import React, {
   Component
 } from 'react';
