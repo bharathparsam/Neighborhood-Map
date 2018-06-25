@@ -1,11 +1,11 @@
-\#Neighborhood Map Using React
+# Neighborhood Map Using React
 
 ### Table of Contents
 
--   [Introduction](#Introduction)
--   [How to use the application](#How to use the application)
--   [How to run the application](#How to run the application)
--   [Run the project in production Mode](#Run the project in production Mode)
+-   [Introduction](<#Introduction>)
+-   [How to use the application](<#How to use the application>)
+-   [How to run the application](<#How to run the application>)
+-   [Run the project in production Mode](<#Run the project in production Mode>)
 -   [Appendix](#Appendix)
 
 * * *
@@ -53,12 +53,14 @@ The app will launch at `http://localhost:2000`
 # API generations
 
 **FOURSQUARE API**
--  Steps involved in **FOURSQUARE API** creation
-    - Follow the link[view more](https://developer.foursquare.com/docs).
+
+-   Steps involved in **FOURSQUARE API** creation
+    -   Follow the link[view more](https://developer.foursquare.com/docs).
 
 **GOOGLE API**
-- To get the **GOOGLE API** key
-    - Follow the link [Google API guide](https://developers.google.com/maps/documentation/embed/get-api-key).
+
+-   To get the **GOOGLE API** key
+    -   Follow the link [Google API guide](https://developers.google.com/maps/documentation/embed/get-api-key).
 
 * * *
 
