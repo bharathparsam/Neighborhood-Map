@@ -2,10 +2,10 @@
 
 ### Table of Contents
 
--   [Introduction](#Introduction)
--   [Guide](#How to use the application)
--   [Deployment](#How to run the application)
--   [Appendix](#Appendix)
+-   [Introduction](#introduction)
+-   [Guide](#how to use the application)
+-   [Deployment](#how to run the application)
+-   [Appendix](#appendix)
 
 * * *
 
