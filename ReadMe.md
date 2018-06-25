@@ -3,8 +3,8 @@
 ### Table of Contents
 
 -   [Introduction](#introduction)
--   [Guide](#how to use the application)
--   [Deployment](#how to run the application)
+-   [Guide](#how-to-use-the-application)
+-   [Deployment](#how-to-run-the-application)
 -   [Appendix](#appendix)
 
 * * *
