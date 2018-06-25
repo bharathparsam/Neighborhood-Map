@@ -42,9 +42,9 @@
 -   Clone the repository
 -   `npm run build`
 -   `cd build`
--   `python -m http.server 2000`
+-   `python -m http.server 8000`
 
-The app will launch at `http://localhost:2000`
+The app will launch at `http://localhost:8000`
 
 * * *
 
