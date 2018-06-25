@@ -7,29 +7,29 @@ class App extends Component {
   //Setting up of states
   state = {
     places: [{
-        name: 'Rangamahal Theater',
-        lat: 13.20658,
-        lng: 78.743786
+        name:'Begumpet Airport',
+        lat: 17.4496,
+        lng: 78.471228
       },
       {
-        name: 'Padmasree Theater',
-        lat: 13.202664,
-        lng: 78.744788
+        name:'Osmania University',
+        lat: 17.418004,
+        lng: 78.527336
       },
       {
-        name: 'LNSP',
-        lat: 13.205529,
-        lng: 78.747077
+        name:'Public Gardens',
+        lat:17.398599,
+        lng:78.468801
       },
       {
-        name: 'Manjunatha Theater',
-        lat: 13.204473,
-        lng: 78.74491
+        name:'BHEL',
+        lat:17.477415,
+        lng:78.459564
       },
       {
-        name: 'V V MAHAL',
-        lat: 13.203343,
-        lng: 78.745324
+        name:'Salarjung Museum',
+        lat: 17.371923,
+        lng: 78.480199
       }
     ],
     map: '',
@@ -54,10 +54,10 @@ class App extends Component {
   initMap = () => {
     var map = new google.maps.Map(document.getElementById('map'), {
       center: {
-        lat: 13.20824,
-        lng: 78.759867
+        lat: 17.385044,
+        lng: 78.486671
       },
-      zoom: 14
+      zoom: 11
     });
     this.setState({
       map: map
@@ -76,13 +76,13 @@ class App extends Component {
         },
         map: map,
         title: locs.name,
-        animation: window.google.maps.Animation.BOUNCE
+        animation: window.google.maps.Animation.DROP
       })
       marking.push(marker);
 
       var locaations = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
       bounds.extend(locaations);
-      google.maps.event.addListener(marker, 'click', () => {
+      google.maps.event.addListener(marker,'click',()=> {
         this.openInfoWindow(marker);
       })
     })
@@ -97,7 +97,7 @@ class App extends Component {
      *    Eventlistener to resize and and set the center
      */
     var currentCenters = map.getCenter();
-    google.maps.event.addDomListener(window, 'resize', () => {
+    google.maps.event.addDomListener(window, 'resize', ()=> {
       this.state.map.setCenter(currentCenters);
       this.state.map.fitBounds(bounds);
       this.state.map.panToBounds(bounds);
@@ -110,7 +110,7 @@ class App extends Component {
 
     });
     this.setState({
-      infowindow: infowindow
+      infowindow:infowindow
     })
 
 
@@ -125,8 +125,8 @@ class App extends Component {
     }, 2100);
     /*set the marker as the center of the map*/
     this.state.map.setCenter(marker.getPosition());
-    var clientsId = 'RMPRLWDMPYYCFIE3XBU51ZENNIE4KYCP42TX3MXYEB0YIEAA'
-    var clientsSecret = '53MWGHEGNVXJM113JAWDJ0T3LWPNIEEPRGTEOHRDOYEZCOOO'
+    var clientsId = 'AG0YZZVPACKCMYNKKVKO5BV4M5TIJKC3SR1QSBE3ZB4ODIBW'
+    var clientsSecret = '2GT0UGBGCKBSSZTZWH2VV5ZYGELH45UPHIN5VIRDPMWHEYRN'
     var lat = marker.getPosition().lat();
     var lng = marker.getPosition().lng();
     /*
@@ -136,7 +136,7 @@ class App extends Component {
 
     this.state.infowindow.setContent("Loading Information..")
     fetch(url)
-      .then((res) => {
+      .then((res)=>{
         if (res.status !== 200) {
           this.state.infowindow.setContent('Error in retriving the data');
           return;
@@ -150,18 +150,18 @@ class App extends Component {
             fetch("https://api.foursquare.com/v2/venues/" + json.id + "/?client_id=" + clientsId + "&client_secret=" + clientsSecret + "&v=20180516")
               .then((resp) => {
                 resp.json()
-                  .then(data => {
-                    var datas = data.response.venue;
-                    console.log(datas);
+                  .then(data=>{
+                    var infos = data.response.venue;
+                    console.log(infos);
                     // Setting the content of the marker
-                    this.state.infowindow.setContent(`As per Foursquare Website : <br>Number of Tips : ${d.tips.count}<br>Number of Likes: ${d.likes.count} Likes`)
-
+  this.state.infowindow.setContent(`As per Foursquare Website: <br>Number of Tips : ${infos.tips.count}<br>Number of Likes: ${infos.likes.count} Likes`)
                   })
               })
+
           })
       })
 
-    this.state.infowindow.open(this.state.map, marker);
+    this.state.infowindow.open(this.state.map,marker);
   }
   /*
    *  Filter Function to filter the text entered.
@@ -208,40 +208,16 @@ class App extends Component {
   render = () => {
     return (
 
-      <
-      div id = "container"
-      role = "main" >
-      <
-      span id = "toggle-nav"
-      onClick = {
-        this.toggleNav
-      }
-      aria - label = "toggle Navigation" > & #9776;</span>
-
-        <SideNav places= {
-        this.state.markers
-      }
-      openInfoWindow = {
-        this.openInfoWindow
-      }
-      filter = {
-        this.filter
-      }
-      isOpen = {
-        this.props.isOpen
-      }
-      />  <
-      div id = "map-container"
-      role = "application"
-      tabIndex = "-1" >
-      <
-      div id = "map"
-      style = {
-        {
-          height: window.innerHeight + "px"
-        }
-      } >
-      </div>  </div>  </div>
+      <div id = "container" role = "main" >
+      <span id = "toggle-nav" onClick = {this.toggleNav} aria-label = "toggle Navigation" >&#9776;</span>
+      <SideNav places= {this.state.markers}openInfoWindow = { this.openInfoWindow} filter = { this.filter}isOpen = {this.props.isOpen}/>
+      <div id = "map-container" role = "application" tabIndex = "-1" >
+      <div id = "map" style = {{
+        height: window.innerHeight + "px"
+      }} >
+      </div>
+      </div>
+      </div>
     );
   }
 }
@@ -257,5 +233,5 @@ function loadMapJS(src) {
   script.onerror = () => {
     document.getElementById('map').innerHTML = "Script Cannot be loaded"
   }
-  ref.parentNode.insertBefore(script, refers);
+  refers.parentNode.insertBefore(script, refers);
 }
