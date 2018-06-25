@@ -139,8 +139,8 @@ class App extends Component {
     * Get the latitude and longitude of the marker
     */
     this.state.map.setCenter(marker.getPosition());
-    var clientsId = 'EAFHJNOE4JPK3SL4I0ED1HZCN205K2B25YWXLT0FLW05J31M'
-    var clientsSecret = '0IS401LDBSMJVGHTCKALGCATUJSHX1P0RCFHLDF2MLIODTWM'
+    var clientsId = 'XXP2WMKXG0E1CYL21PCIFCRDVFSQFCJYIKFRHEYBZLPLJMVY'
+    var clientsSecret = 'YBXA4XAOOEPCRZR4PUMUAG55DILNQ3Y0S13WKXGRLJIROQZ4'
     // variables created to us it in fetching the details
 
     var lat = marker.getPosition().lat();
