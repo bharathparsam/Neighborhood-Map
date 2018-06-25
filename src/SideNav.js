@@ -14,7 +14,7 @@ class SideNav extends Component {
       id = "filter"
       aria-label = "Search Filter"
       onChange = {this.props.filter}/>
-      <ul id = "items-list" aria-label = "list of places" role = "navigate" >
+      <ul id = "items-list" aria-label="list of locations" role = "navigation" >
       {
         this.props.places.map((mark,index) => {
             return ( < li key = {index}
