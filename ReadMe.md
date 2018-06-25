@@ -54,7 +54,7 @@ The app will launch at `http://localhost:2000`
 **FOURSQUARE API**
 
 -   Steps involved in **FOURSQUARE API** creation
-    -   Follow the link[view more](https://developer.foursquare.com/docs).
+    -   Follow the link [FOURSQUARE API Guide](https://developer.foursquare.com/docs).
 
 **GOOGLE API**
 
