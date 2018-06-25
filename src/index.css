@@ -3,7 +3,7 @@
   padding: 10px;
 }
 
-#list-items {
+#items-list {
   list-style-type: none;
   padding: 20px;
 }
@@ -24,7 +24,7 @@
   z-index: 5;
 }
 
-.elem {
+.elementss {
   cursor: pointer;
   padding: 10px;
 }
