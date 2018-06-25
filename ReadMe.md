@@ -6,6 +6,7 @@
 -   [Guide](#how-to-use-the-application)
 -   [Deployment](#how-to-run-the-application)
 -   [Appendix](#appendix)
+-   [Demo](#demo)
 
 * * *
 
@@ -63,6 +64,10 @@ The app will launch at `http://localhost:2000`
 
 * * *
 
-# Additional files used
+### Additional files used
 
 -   This project was developed using the [Node.js >= 6.x](https://nodejs.org/en/) and the [Create-React-App starter code](https://github.com/facebookincubator/create-react-app).
+
+### Demo
+
+![Demo video](/Demo.gif)
