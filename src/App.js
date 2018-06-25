@@ -64,7 +64,7 @@ class App extends Component {
     })
     /*
      *     Array of markers
-     *     Bounds for map -> To enavble autozoom and pan itself depending on the screen size)
+     *     Bounds for map -> To enable autozoom and pan itself depending on the screen size)
      */
     var bounds = new google.maps.LatLngBounds();
     var marking = [];
@@ -197,8 +197,8 @@ class App extends Component {
    */
   toggleNav = () => {
 
-    document.getElementById('nav').classList.toggle('close')
-    if (document.getElementById('nav').className === 'close') {
+    document.getElementById('filter-navigator').classList.toggle('close')
+    if (document.getElementById('filter-navigator').className === 'close') {
       this.setState({
         isOpen: false
       })
