@@ -22,9 +22,9 @@ class App extends Component {
         lng:78.468801
       },
       {
-        name:'BHEL',
-        lat:17.477415,
-        lng:78.459564
+        name:'Snow World',
+        lat:17.414571,
+        lng:78.480923
       },
       {
         name:'Salarjung Museum',
@@ -122,7 +122,7 @@ class App extends Component {
 
     */
 
-    var infowindow = new google.maps.InfoWindow({ maxWidth: 130 });
+    var infowindow = new google.maps.InfoWindow({ maxWidth: 200 });
     this.setState({
       infowindow:infowindow
     })
@@ -161,6 +161,7 @@ class App extends Component {
         }
         res.json()
           .then((data) => {
+            //get the first response
             var json = data.response.venues[0];
             /*
              *   resp is where all the location information is being stored
@@ -170,9 +171,10 @@ class App extends Component {
                 resp.json()
                   .then(data=>{
                     var infos = data.response.venue;
+                    var viewMore = '<a href="https://foursquare.com/v/'+ infos.id +'"target="_blank"><b>View More</b></a>' + '<br>';
                     console.log(infos);
                     // Setting the content of the marker
-                    this.state.infowindow.setContent(`As per Foursquare Website: <br>Number of Tips : ${infos.tips.count}<br>Number of Likes: ${infos.likes.count}`)
+                    this.state.infowindow.setContent(`As per Foursquare Website: <br>Number of Tips : ${infos.tips.count}<br>Number of Likes: ${infos.likes.count} <br> ${viewMore}`)
                   })
               })
               .catch(function (err){
@@ -181,7 +183,7 @@ class App extends Component {
           })
       })
       .catch(function (err){
-        alert("Sorry Foursquare api is not available right now");
+        alert("Sorry Foursquare API limit has been exceeded for the day");
       });
 
     this.state.infowindow.open(this.state.map,marker);
