@@ -47,9 +47,9 @@ The app will launch at `http://localhost:2000`
 
 * * *
 
-### Appendix
+## Appendix
 
-# API generations
+### API generations
 
 **FOURSQUARE API**
 
