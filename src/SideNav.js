@@ -9,6 +9,7 @@ class SideNav extends Component {
   render = () => {
     return (
       <div id = "filter-navigator" >
+      <h5 id="filter">My Places</h5>
       <input type = "text"
       placeholder = "Filter by location names"
       id = "filter"

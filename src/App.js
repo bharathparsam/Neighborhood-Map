@@ -41,14 +41,17 @@ class App extends Component {
 
   //Loding Map Reference take from http://www.klaasnotfound.com/2016/11/06/making-google-maps-work-with-react/
   componentDidMount = () => {
-    // Connect the initMap() function within this class to the global window context,
-    // so Google Maps can invoke it
+    /*
+    *   Connect the initMap() function within this class to the global window context,
+    *   so Google Maps can invoke it
+    *   Loading google api using the key provided
+    */
     window.initMap = this.initMap;
-    // Asynchronously load the Google Maps script, passing in the callback reference
     loadMapJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyD753Z4GDEJ1IK-MHqzwdK04oZD3O1zRk8&callback=initMap')
   }
-  /*initMap() ---> Initializtion of map
-   *    Only center zoom is set
+  /*
+   *   initMap() ---> Initializtion of map
+   *   Only center zoom is set
    *
    */
   initMap = () => {
@@ -62,12 +65,14 @@ class App extends Component {
     this.setState({
       map: map
     })
+
     /*
-     *     Array of markers
+     *     Array of markers is set
      *     Bounds for map -> To enable autozoom and pan itself depending on the screen size)
      */
+
     var bounds = new google.maps.LatLngBounds();
-    var marking = [];
+    var listOfLocations = [];
     this.state.places.forEach(locs => {
       var marker = new google.maps.Marker({
         position: {
@@ -75,26 +80,32 @@ class App extends Component {
           lng: locs.lng
         },
         map: map,
+        // we can add type if required like title: locs.type
+        // for this we need to set type:bar or etc..
         title: locs.name,
         animation: window.google.maps.Animation.DROP
       })
-      marking.push(marker);
-
+      //push the marker to the array of listOfLocations[]
+      listOfLocations.push(marker);
       var locaations = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+      //To extend the boundaries of the map for each marker
+
       bounds.extend(locaations);
+      // Addition of eventListener to the marker to open the information window
+
       google.maps.event.addListener(marker,'click',()=> {
         this.openInfoWindow(marker);
       })
     })
-    this.setState({
-      markers: marking,
-      defaultMarkers: marking
+      this.setState({
+      markers: listOfLocations,
+      defaultMarkers: listOfLocations
     })
 
     /*
      *    Retrive the current center
      *    Refrence taken from -->  https://codepen.io/alexgill/pen/NqjMma
-     *    Eventlistener to resize and and set the center
+     *    Eventlistener to resize and reset the zoom size of the marker
      */
     var currentCenters = map.getCenter();
     google.maps.event.addDomListener(window, 'resize', ()=> {
@@ -104,11 +115,14 @@ class App extends Component {
 
     });
 
-    /* Creating the infowindow */
+    /*
+    *   Creating the info window and setting a state -->
+    *   Setting the maximum size of InfoWindow
+    *
 
-    var infowindow = new google.maps.InfoWindow({
+    */
 
-    });
+    var infowindow = new google.maps.InfoWindow({ maxWidth: 130 });
     this.setState({
       infowindow:infowindow
     })
@@ -122,11 +136,15 @@ class App extends Component {
     marker.setAnimation(window.google.maps.Animation.BOUNCE);
     setTimeout(function() {
       marker.setAnimation(null);
-    }, 2100);
-    /*set the marker as the center of the map*/
+    }, 1500);
+    /*
+    * Get the latitude and longitude of the marker
+    */
     this.state.map.setCenter(marker.getPosition());
-    var clientsId = 'AG0YZZVPACKCMYNKKVKO5BV4M5TIJKC3SR1QSBE3ZB4ODIBW'
-    var clientsSecret = '2GT0UGBGCKBSSZTZWH2VV5ZYGELH45UPHIN5VIRDPMWHEYRN'
+    var clientsId = 'BOFQSMIRJZAL3ES3DGLLBUP0B3L2TJV3TXWNE5T52C1GAN53'
+    var clientsSecret = 'JB3RLAVHF0I0XPK1S4U2PSUYWCWFPZ3CH1LQPQ3V2I2VREFZ'
+    // variables created to us it in fetching the details
+
     var lat = marker.getPosition().lat();
     var lng = marker.getPosition().lng();
     /*
@@ -154,12 +172,17 @@ class App extends Component {
                     var infos = data.response.venue;
                     console.log(infos);
                     // Setting the content of the marker
-  this.state.infowindow.setContent(`As per Foursquare Website: <br>Number of Tips : ${infos.tips.count}<br>Number of Likes: ${infos.likes.count} Likes`)
+                    this.state.infowindow.setContent(`As per Foursquare Website: <br>Number of Tips : ${infos.tips.count}<br>Number of Likes: ${infos.likes.count}`)
                   })
               })
-
+              .catch(function (err){
+                alert("Sorry Foursquare API limit has been exceeded for the day");
+              });
           })
       })
+      .catch(function (err){
+        alert("Sorry Foursquare api is not available right now");
+      });
 
     this.state.infowindow.open(this.state.map,marker);
   }
@@ -212,9 +235,7 @@ class App extends Component {
       <span id = "toggle-nav" onClick = {this.toggleNav} aria-label = "toggle Navigation" >&#9776;</span>
       <SideNav places= {this.state.markers}openInfoWindow = { this.openInfoWindow} filter = { this.filter}isOpen = {this.props.isOpen}/>
       <div id = "map-container" role = "application" tabIndex = "-1" >
-      <div id = "map" style = {{
-        height: window.innerHeight + "px"
-      }} >
+      <div id = "map" style = {{ height: window.innerHeight + "px" }} >
       </div>
       </div>
       </div>
